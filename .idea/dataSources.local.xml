@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails kayak_handicap: development" uuid="401b7299-9984-4670-a4be-19dd21fb25c3">
+      <user-name>kaspersaaby</user-name>
+      <user-password>dfe6dfdfdfc1dfcfdfe6dfdfdfc1dfcf</user-password>
+      <schema-pattern>kayak_handicap_development.pg_catalog kayak_handicap_development.public</schema-pattern>
+      <default-schemas>kayak_handicap_development.pg_catalog kayak_handicap_development.public</default-schemas>
+    </data-source>
+    <data-source name="Rails kayak_handicap: test" uuid="25889c12-2b90-4b42-85f9-4a5003297807">
+      <schema-pattern>kayak_handicap_test.*</schema-pattern>
+      <default-schemas>kayak_handicap_test.*</default-schemas>
+    </data-source>
+    <data-source name="Rails kayak_handicap: production" uuid="8244c145-f567-471f-9fa6-b5e501a22b68">
+      <first-sync>true</first-sync>
+      <user-name>kayak_handicap</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe1dfebdff3dfebdfe1dff5dfe2dfebdfe4dfeedfe3dfe9dfebdffadff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>
