@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: kayak_handicap_production
-  username: kayak_handicap
+  database: d9thtrlakot7cb
+  username: abuhcdrxxbiwbk
   password: <%= ENV['KAYAK_HANDICAP_DATABASE_PASSWORD'] %>
