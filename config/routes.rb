@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     api_version(module: 'V1', path: { value: 'v1'}) do
+      post :authentication, to: 'authentication#create'
+
       concern :time_keepable do
         resources :time_keepings, except: [:edit, :new]
       end

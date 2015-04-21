@@ -1,8 +1,8 @@
 class Club < ActiveRecord::Base
+  has_secure_password
+
   has_many :members
   has_many :seasons
-
-  has_secure_password
 
   validates_presence_of :email
   validates_uniqueness_of :email
