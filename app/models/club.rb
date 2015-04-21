@@ -1,5 +1,5 @@
 class Club < ActiveRecord::Base
-  has_many :people
+  has_many :members
   has_many :seasons
 
   has_secure_password

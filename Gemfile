@@ -35,6 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 # A plugin for versioning Rails based RESTful APIs
 gem 'versionist'
 
+gem 'restpack_serializer'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

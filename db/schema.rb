@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420110224) do
+ActiveRecord::Schema.define(version: 20150421161434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20150420110224) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "members", force: :cascade do |t|
+    t.string   "name"
+    t.string   "sex"
+    t.integer  "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "members_participations", id: false, force: :cascade do |t|
+    t.integer "participation_id"
+    t.integer "member_id"
+  end
+
+  add_index "members_participations", ["member_id"], name: "index_members_participations_on_member_id", using: :btree
+  add_index "members_participations", ["participation_id"], name: "index_members_participations_on_participation_id", using: :btree
+
   create_table "participations", force: :cascade do |t|
     t.time     "start"
     t.time     "end"
@@ -44,22 +60,6 @@ ActiveRecord::Schema.define(version: 20150420110224) do
   end
 
   add_index "participations", ["boat_type_id"], name: "index_participations_on_boat_type_id", using: :btree
-
-  create_table "participations_people", id: false, force: :cascade do |t|
-    t.integer "participation_id"
-    t.integer "person_id"
-  end
-
-  add_index "participations_people", ["participation_id"], name: "index_participations_people_on_participation_id", using: :btree
-  add_index "participations_people", ["person_id"], name: "index_participations_people_on_person_id", using: :btree
-
-  create_table "people", force: :cascade do |t|
-    t.string   "name"
-    t.string   "sex"
-    t.integer  "club_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "races", force: :cascade do |t|
     t.datetime "date"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150420110224) do
   end
 
   create_table "time_keepings", force: :cascade do |t|
-    t.integer  "person_id"
+    t.integer  "member_id"
     t.integer  "race_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,4 +1,4 @@
-class V1::SeasonsController < V1::BaseController
+class Api::V1::SeasonsController < Api::V1::BaseController
   def index
     seasons = Season.joins(:club).where(clubs: { id: params[:club_id] })
     render json: seasons, status: :ok

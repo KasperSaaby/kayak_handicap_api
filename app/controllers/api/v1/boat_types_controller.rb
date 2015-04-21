@@ -1,4 +1,4 @@
-class V1::BoatTypesController < V1::BaseController
+class Api::V1::BoatTypesController < Api::V1::BaseController
   def index
     boat_types = BoatType.all
     render json: boat_types, status: :ok

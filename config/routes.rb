@@ -5,25 +5,27 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  api_version(module: 'V1', path: { value: 'v1'}) do
-    concern :time_keepable do
-      resources :time_keepings, except: [:edit, :new]
-    end
-
-    concern :participationable do
-      resources :participations, except: [:edit, :new] do
-        resources :people, except: [:edit, :new]
+  namespace :api, defaults: { format: 'json' } do
+    api_version(module: 'V1', path: { value: 'v1'}) do
+      concern :time_keepable do
+        resources :time_keepings, except: [:edit, :new]
       end
-    end
 
-    shallow do
-      resources :clubs, except: [:edit, :new] do
-        resources :people, except: [:edit, :new], concerns: [:time_keepable, :participationable]
-        resources :seasons, except: [:edit, :new] do
-          resources :races, except: [:edit, :new], concerns: [:time_keepable, :participationable]
+      concern :participationable do
+        resources :participations, except: [:edit, :new] do
+          resources :members, except: [:edit, :new]
         end
       end
-      resources :boat_types, except: [:edit, :new], concerns: :participationable
+
+      shallow do
+        resources :clubs, except: [:edit, :new] do
+          resources :members, except: [:edit, :new], concerns: [:time_keepable, :participationable]
+          resources :seasons, except: [:edit, :new] do
+            resources :races, except: [:edit, :new], concerns: [:time_keepable, :participationable]
+          end
+        end
+        resources :boat_types, except: [:edit, :new], concerns: :participationable
+      end
     end
   end
 

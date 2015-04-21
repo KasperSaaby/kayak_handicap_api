@@ -1,7 +1,8 @@
-class V1::ClubsController < V1::BaseController
+class Api::V1::ClubsController < Api::V1::BaseController
   def index
     clubs = Club.all
-    render json: clubs, status: :ok
+    render json: ClubSerializer.resource(params, clubs.includes(:members, :seasons)),
+           status: :ok
   end
 
   def create
@@ -15,7 +16,7 @@ class V1::ClubsController < V1::BaseController
 
   def show
     club = Club.find(params[:id])
-    render json: club, status: :ok
+    render json: ClubSerializer.as_json(club), status: :ok
   end
 
   def update
@@ -39,6 +40,13 @@ class V1::ClubsController < V1::BaseController
   private
 
   def club_params
-    params.require(:club).permit(:name, :uri, :lat, :lng, :email, :password, :password_confirmation)
+    params.require(:club).permit(
+        :name,
+        :uri,
+        :lat,
+        :lng,
+        :email,
+        :password,
+        :password_confirmation)
   end
 end

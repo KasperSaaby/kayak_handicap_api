@@ -53,6 +53,9 @@ GEM
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     json (1.8.2)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -93,6 +96,10 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    restpack_serializer (0.5.9)
+      activerecord (>= 4.0.3, < 5.0)
+      activesupport (>= 4.0.3, < 5.0)
+      kaminari (~> 0.16.1)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -127,6 +134,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   pg
   rails (= 4.2.1)
+  restpack_serializer
   sdoc (~> 0.4.0)
   spring
   versionist

@@ -1,4 +1,4 @@
-class V1::ParticipationsController < V1::BaseController
+class Api::V1::ParticipationsController < Api::V1::BaseController
   def index
     parent = participation_scope
     participations = parent.participations
@@ -49,7 +49,7 @@ class V1::ParticipationsController < V1::BaseController
     if params[:race_id]
       Race.find(params[:race_id])
     else
-      Person.find(params[:person_id])
+      Member.find(params[:person_id])
     end
   end
 end
