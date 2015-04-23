@@ -1,8 +1,7 @@
 class Api::V1::ClubsController < Api::V1::BaseController
   def index
     clubs = Club.all
-    render json: ClubSerializer.resource(params, clubs.includes(:members, :seasons)),
-           status: :ok
+    render json: clubs, status: :ok
   end
 
   def create
@@ -16,7 +15,7 @@ class Api::V1::ClubsController < Api::V1::BaseController
 
   def show
     club = Club.find(params[:id])
-    render json: ClubSerializer.as_json(club), status: :ok
+    render json: club, status: :ok
   end
 
   def update
