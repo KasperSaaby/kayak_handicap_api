@@ -39,6 +39,8 @@ gem 'bcrypt', '~> 3.1.7'
 # A plugin for versioning Rails based RESTful APIs
 gem 'versionist'
 
+gem 'active_model_serializers'
+
 # Rack::Cors provides support for Cross-Origin Resource Sharing (CORS) for Rack compatible web applications.
 gem 'rack-cors', require: 'rack/cors'
 
